@@ -1,0 +1,50 @@
+name: InvestSMP
+version: '${project.version}'
+main: de.investsmp.InvestSMP
+api-version: '26.2'
+description: Economy- und Investitionssystem für SMP-Server
+authors: [InvestSMP]
+softdepend: [Vault]
+libraries:
+  - org.xerial:sqlite-jdbc:3.46.1.3
+
+commands:
+  money:
+    description: "Zeigt deinen Kontostand (OP: den eines Spielers)"
+    usage: "/<command> [spieler]"
+  pay:
+    description: "Überweist Coins an einen Spieler"
+    usage: "/<command> <spieler> <betrag>"
+  baltop:
+    description: "Zeigt die reichsten Spieler"
+    usage: "/<command>"
+  invest:
+    description: "Investitionssystem"
+    usage: "/<command> [add <betrag>|info|collect|autocollect]"
+  investsmp:
+    description: "Admin-GUI und Verwaltung"
+    usage: "/<command> [reload]"
+  dashboard:
+    description: "Server-Dashboard (Admin)"
+    usage: "/<command>"
+    aliases: [dashbord]
+
+permissions:
+  investsmp.money:
+    description: "Eigenen Kontostand anzeigen"
+    default: true
+  investsmp.money.others:
+    description: "Kontostand anderer Spieler anzeigen"
+    default: op
+  investsmp.pay:
+    description: "Geld überweisen"
+    default: true
+  investsmp.baltop:
+    description: "Baltop anzeigen"
+    default: true
+  investsmp.invest:
+    description: "Investieren"
+    default: true
+  investsmp.admin:
+    description: "Admin-GUI, Dashboard und Reload"
+    default: op

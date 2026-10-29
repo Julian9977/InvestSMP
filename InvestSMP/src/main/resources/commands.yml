@@ -1,0 +1,34 @@
+# ============================================================
+#  InvestSMP – commands.yml  (Eigene Befehle)
+#  Neu laden: /investsmp reload
+#
+#  run-as:  player  = Befehle werden als der Spieler ausgeführt
+#           console = Befehle werden von der Konsole ausgeführt
+#  execute: Liste von Befehlen (ohne /). Platzhalter: {player} {args} {arg1} {arg2} ...
+#           Bei run-as: console werden Argumente aus Sicherheitsgründen auf
+#           Buchstaben, Zahlen sowie _ - . reduziert.
+#  message: Liste von Chat-Nachrichten (bekommen automatisch [Invest SMP] davor)
+#  permission: leer = jeder darf
+# ============================================================
+commands:
+  reich:
+    description: "Zeigt die reichsten Spieler"
+    permission: ""
+    run-as: player
+    cooldown: 3
+    execute:
+      - "baltop"
+
+  kontostand:
+    description: "Kurzbefehl für dein Guthaben"
+    permission: ""
+    run-as: player
+    execute:
+      - "money"
+
+  investinfo:
+    description: "Erklärt das Investitionssystem"
+    permission: ""
+    message:
+      - "Mit &e/invest add <betrag>&r investierst du Coins und erhältst jede Sekunde Rendite."
+      - "Mit &e/invest info&r siehst du deine Erträge."

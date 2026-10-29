@@ -1,0 +1,43 @@
+# ============================================================
+#  InvestSMP – config.yml
+# ============================================================
+economy:
+  # AUTO     = vorhandene Vault-Economy nutzen, sonst interne SQLite-Economy
+  # INTERNAL = immer interne Economy (wird bei Vault als Provider angemeldet, falls keiner existiert)
+  # VAULT    = wie AUTO (Warnung, falls keine Vault-Economy gefunden wird)
+  # Es wird immer genau EIN System für Kontostände genutzt.
+  mode: AUTO
+  # Interne Economy bei Vault anmelden, wenn KEIN anderer Economy-Provider existiert
+  register-vault-provider: true
+  # Startguthaben neuer Spieler in Coins (nur interne Economy)
+  starting-balance: 1000
+  # Mindestabstand zwischen zwei /pay-Befehlen (Millisekunden)
+  pay-cooldown-ms: 1000
+  baltop-size: 10
+
+invest:
+  # Rendite in Prozent pro Sekunde (0.1 => 500 Coins bringen 0,50 Coins/Sekunde)
+  rate-percent-per-second: 0.1
+  # Mindestinvestition pro Vorgang (Coins)
+  min-invest: 1
+  # Maximale Gesamtinvestition pro Spieler (Coins)
+  max-total-per-player: 1000000
+  # Alle Investitionen pausieren (keine neuen Investitionen, keine Erträge)
+  paused: false
+  # Standard für neue Spieler: Erträge sofort jede Sekunde gutschreiben
+  # false = Erträge sammeln und mit /invest collect abholen
+  default-autocollect: true
+  # Nachholen bei Lag: max. Sekunden, die ein online Spieler auf einmal nachgebucht bekommt
+  max-catchup-seconds: 60
+  # Automatische Auszahlungen werden zusammengefasst ins Transaktionsprotokoll geschrieben
+  payout-log-interval-seconds: 300
+  offline-earnings:
+    enabled: true
+    # Maximal angerechnete Offline-Zeit pro Login/Neustart
+    max-seconds: 3600
+
+gui:
+  # Schnellbeträge in Coins (max. 3) im /invest-Menü
+  presets: [100, 1000, 10000]
+  # Schrittgrößen in Coins (genau 3) im Admin-Spielermenü
+  admin-steps: [100, 1000, 10000]
